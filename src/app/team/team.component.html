@@ -1,0 +1,41 @@
+
+<div class="form-container">
+    <form >
+      <div class="form-group ">
+        
+          <input type="text" [(ngModel)]="teamNames" class="form-control" name="teamName" placeholder="enter team name"/>
+        
+        </div>
+          <button class="btn btn-success" (click)="addMyTeams()">Add Your team</button>
+      
+        
+      </form>
+</div>
+
+
+<div class="row">
+ 
+  <div class="col-md-6 text-center">
+    <h3>Group A</h3>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let firstGroup of groupA">{{firstGroup}}</li>
+    
+    </ul>
+  </div>
+
+  <div class="col-md-6 text-center">
+    <h3>Group B</h3>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let secondGroup of groupB">{{secondGroup}}</li>
+    </ul>
+  </div>
+</div>
+<button (click)="shuffleTeam()">Assign</button>
+<button (click)="fixture()">Fixture</button>
+<div *ngIf="participant.length">
+  <div *ngFor="let fix of participant">
+    <div class="fixture">
+      {{fix[0]}} vs {{fix[1]}}
+    </div>
+  </div>
+</div>
